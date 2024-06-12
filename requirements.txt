@@ -1,0 +1,5 @@
+Django==5.0.6
+openai==1.33.0
+python-dotenv==1.0.1
+pytube==15.0.0
+youtube_transcript_api==0.6.2
