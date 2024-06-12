@@ -23,8 +23,11 @@
                 </div>
             </div>
             
-            <form action="" class="flex flex-col items-center w-full mb-20">
-                <input type="text" placeholder="Paste your link here" class="border-2 border-black bg-[#fefaf3] p-2 w-[80%] rounded-xl mb-3">
+            <form class="flex flex-col items-center w-full mb-20"
+            hx-post="/submit/"
+            hx-target="#preview"
+            hx-swap="innerHTML">
+                <input name="url" type="text" placeholder="Paste your link here" class="border-2 border-black bg-[#fefaf3] p-2 w-[80%] rounded-xl mb-3">
                 <button class="bg-[#5f5fff] text-white rounded-full p-2 px-8
                 hover:font-semibold hover:bg-transparent hover:text-[#5f5fff] hover:ring-2 hover:ring-[#5f5fff] hover:ring-inset">
                     Submit
@@ -32,12 +35,16 @@
             </form>
 
         </div>
-        <div class="flex flex-1 flex-col items-center border-l">
-            {% include 'home/partials/preview.html' %}
-            {% include 'home/partials/content.html' %}
+        <div id="preview" class="flex flex-1 flex-col items-center border-l">
+
         </div>
     </div>
 </body>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        });
+    </script>
 </html>

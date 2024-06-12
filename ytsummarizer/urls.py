@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from summarize.views import home
+from summarize.views import home, submit, download_file,generate
 
 urlpatterns = [
     path('',home,name='home'),
+    path('submit/',submit,name='submit'),
+    path('download/<str:file_type>/<str:video_id>/', download_file, name='download_file'),
+    path('generate/<str:video_id>/', generate, name='generate'),
     path('admin/', admin.site.urls),
 ]
