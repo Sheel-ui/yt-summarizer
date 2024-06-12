@@ -1,0 +1,16 @@
+{% load static %}
+<div class=" h-[40%] w-full flex items-center justify-center">
+    <iframe class="w-72 h-44 rounded-xl border-2" src="https://www.youtube.com/embed/Q_EYoV1kZWk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="flex flex-col m-8 space-y-6">
+        <button class="ring-2 ring-[#5f5fff] text-[#5f5fff] rounded-full p-1 font-semibold px-4 pr-6
+        transform transition-transform duration-300 hover:-translate-y-1.5">
+            <image xlink:href="{% static 'icons/download.svg' %}" src="{% static 'icons/download.svg' %}" class="pt-1 size-5 mb-1 ml-1 inline-block" />
+            srt
+        </button>
+        <button class="ring-2 ring-[#5f5fff] text-[#5f5fff] rounded-full p-1 font-semibold px-4 pr-6
+        transform transition-transform duration-300 hover:-translate-y-1.5">
+            <image xlink:href="{% static 'icons/download.svg' %}" src="{% static 'icons/download.svg' %}" class="pt-1 size-5 mb-1 ml-1 inline-block" />
+            txt
+        </button>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Summarizer</title>
+</head>
+<body class="h-screen bg-[#fefaf3]">
+    <div class="flex h-full">
+        <div class="flex flex-col items-center justify-center w-[32%]">
+            <div class="flex items-center">
+                <image xlink:href="{% static 'icons/youtube.svg' %}" src="{% static 'icons/youtube.svg' %}" class="pt-1 size-16"/>
+                <h1 class="text-5xl font-bold">Youtube</h1> 
+            </div>
+            <h1 class="text-5xl font-bold  mb-6">Summarizer</h1>
+            <div class="flex flex-col items-center mb-20">
+                <h3 class="text-[#86909c]">Summarize a video in seconds 🚀</h3>
+                <div class="flex">
+                    <h3 class="text-[#86909c]">Powered by ChatGPT</h3>
+                    <image xlink:href="{% static 'icons/chatgpt.svg' %}" src="{% static 'icons/chatgpt.svg' %}" class="pt-1 size-5 mb-1 ml-1" />
+                </div>
+            </div>
+            
+            <form action="" class="flex flex-col items-center w-full mb-20">
+                <input type="text" placeholder="Paste your link here" class="border-2 border-black bg-[#fefaf3] p-2 w-[80%] rounded-xl mb-3">
+                <button class="bg-[#5f5fff] text-white rounded-full p-2 px-8
+                hover:font-semibold hover:bg-transparent hover:text-[#5f5fff] hover:ring-2 hover:ring-[#5f5fff] hover:ring-inset">
+                    Submit
+                </button>
+            </form>
+
+        </div>
+        <div class="flex flex-1 flex-col items-center border-l">
+            {% include 'home/partials/preview.html' %}
+            {% include 'home/partials/content.html' %}
+        </div>
+    </div>
+</body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</html>

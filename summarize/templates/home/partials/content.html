@@ -1,0 +1,18 @@
+{% load static %}
+<div class="w-[90%] flex-1">
+    <p class="border rounded-xl max-h-[70%] mb-6 p-4 overflow-y-auto">
+        Apple Intelligence enhances personal productivity and creativity across Mac, iPad, and iPhone with advanced tools and features. Writing Tools help customize email tone and improve grammar, while Genmoji allows users to create personalized emojis from descriptions. Image Playground generates images based on user input, and Image Wand refines sketches into polished images. Siri, now more intuitive with natural language processing, remembers conversations and integrates information from various apps to provide accurate responses. Personal Context enables Siri to answer specific questions about schedules and messages. Additionally, Priority Notifications prioritize important alerts, and Memory Movies create personalized video compilations from photos. Apple Intelligence is designed for ease of use and privacy, making advanced AI accessible to everyone.
+    </p>
+    <div class="w-full flex justify-center space-x-6">
+        <button class="ring-2 ring-[#5f5fff] text-[#5f5fff] rounded-full p-1 font-semibold px-4 pr-6
+        transform transition-transform duration-300 hover:-translate-y-1.5">
+            <image xlink:href="{% static 'icons/copy.svg' %}" src="{% static 'icons/copy.svg' %}" class="pt-1 size-5 mb-1 ml-1 inline-block" />
+            Copy
+        </button>
+        <button class="ring-2 ring-[#5f5fff] text-[#5f5fff] rounded-full p-1 font-semibold px-4 pr-6
+        transform transition-transform duration-300 hover:-translate-y-1.5">
+            <image xlink:href="{% static 'icons/download.svg' %}" src="{% static 'icons/download.svg' %}" class="pt-1 size-5 mb-1 ml-1 inline-block" />
+            Download
+        </button>
+    </div>
+</div>
