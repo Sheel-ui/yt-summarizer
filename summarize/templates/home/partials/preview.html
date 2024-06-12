@@ -4,13 +4,13 @@
     <div class="flex flex-col m-8 space-y-6">
         <a href="{% url 'download_file' 'srt' video_id %}"
         class="ring-2 ring-[#5f5fff] text-[#5f5fff] rounded-full p-1 font-semibold px-4 pr-6
-        transform transition-transform duration-300 hover:-translate-y-1.5">
+        transform transition-transform duration-300 hover:-translate-y-1.5 text-center">
             <image xlink:href="{% static 'icons/download.svg' %}" src="{% static 'icons/download.svg' %}" class="pt-1 size-5 mb-1 ml-1 inline-block" />
             srt
         </a>
         <a href="{% url 'download_file' 'txt' video_id %}"
         class="ring-2 ring-[#5f5fff] text-[#5f5fff] rounded-full p-1 font-semibold px-4 pr-6
-        transform transition-transform duration-300 hover:-translate-y-1.5">
+        transform transition-transform duration-300 hover:-translate-y-1.5 text-center">
             <image xlink:href="{% static 'icons/download.svg' %}" src="{% static 'icons/download.svg' %}" class="pt-1 size-5 mb-1 ml-1 inline-block" />
             txt
         </a>

@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 import re
+from django.http import HttpResponse
 from pytube import YouTube
 from pytube.exceptions import VideoUnavailable
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound
 import io
-from django.http import HttpResponse
+from .client import get_openai_client
 
 def is_valid_youtube_url(url):
     youtube_regex = (
@@ -90,5 +91,26 @@ def download_file(request, file_type, video_id):
 @require_http_methods(['POST'])
 def generate(request,video_id):
     transcript = fetch_transcript(video_id)
-    return render(request,'home/partials/content.html',{"content": transcript})
+    line1 = "SUMMARIZE THE GIVEN CAPTIONS:\n"
+    line2 = "".join([entry['text'] for entry in transcript])
+    output = ""
+    try:
+        response = get_openai_client().chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": line1+line2
+                    }
+                ]
+            )
+        output = response.choices[0].message.content
+    except Exception as e:
+        try:
+            error_message = e.response.json().get('error', {}).get('message', 'An unknown error occurred.')
+        except AttributeError:
+            error_message = str(e)
+        output = f"Something went wrong: {error_message}"
+
+    return render(request,'home/partials/content.html',{"content": output})
     
